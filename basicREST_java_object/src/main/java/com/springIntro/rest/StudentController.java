@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -12,6 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class StudentController {
 	
 	// get single java object
+	
+	// http://localhost:8080/student/
 	
 	@GetMapping("/student")
 	
@@ -21,6 +24,7 @@ public class StudentController {
 	
 	
 	// get list of Java Objects
+	// http://localhost:8080/students/
 	
 	@GetMapping("/students")
 	
@@ -36,8 +40,16 @@ public class StudentController {
 	
 	// use path variable to read data from end point
 	// @PathVariable Annotation 
+	// http://localhost:8080/student/Jaya/Prakash
 	@GetMapping("/student/{firstName}/{lastName}")
 	public Student getStudentPathVariable(@PathVariable ("firstName") String firstName, @PathVariable ("lastName") String lastName) {
+		return new Student(firstName, lastName);
+	}
+	
+	// Request params
+	// http://localhost:8080/student/query?firstName=Jaya&lastName=Prakash
+	@GetMapping("/student/query")
+	public Student getStudentParams(@RequestParam (name = "firstName") String firstName, @RequestParam (name = "lastName") String lastName) {
 		return new Student(firstName, lastName);
 	}
 
