@@ -11,3 +11,12 @@ public class BasicRestJavaObjectApplication {
 	}
 
 }
+
+
+// Springboot Server auto restart
+/*
+<dependency>
+<groupId>org.springframework.boot</groupId>
+<artifactId>spring-boot-devtools</artifactId>
+</dependency>
+*/
